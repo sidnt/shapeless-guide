@@ -109,9 +109,8 @@ given `CsvEncoders` for `A` and `B`:
 
 ```tut:book:silent
 implicit def pairEncoder[A, B](
-  implicit
-  aEncoder: CsvEncoder[A],
-  bEncoder: CsvEncoder[B]
+  implicit aEncoder: CsvEncoder[A],
+  implicit bEncoder: CsvEncoder[B]
 ): CsvEncoder[(A, B)] =
   new CsvEncoder[(A, B)] {
     def encode(pair: (A, B)): List[String] = {
